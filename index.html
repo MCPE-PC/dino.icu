@@ -1,0 +1,92 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>dino.icu</title>
+
+		<style>
+			html,
+			body,
+			a,
+			main {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+			}
+
+			* {
+				color: inherit;
+				text-decoration-line: inherit;
+				text-align: center;
+				font-size: x-large;
+			}
+
+			body {
+				color: #fff;
+				background-color: #3498db;
+			}
+
+			main {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				box-sizing: border-box;
+				padding: 1rem;
+			}
+
+			div {
+				flex: 1 1;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+
+			figure {
+				margin: 0;
+			}
+
+			blockquote {
+				margin: 0.5rem 0 0.5rem 0;
+			}
+
+			.hidden {
+				display: none;
+			}
+		</style>
+
+		<script async>
+			fetch('https://programming-quotesapi.vercel.app/api/random')
+				.then((response) => response.json())
+				.then(({ author, quote }) => {
+					document.querySelector('blockquote').textContent = quote;
+					document.querySelector('span').textContent = author;
+					document.querySelector('figure').classList.remove('hidden');
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		</script>
+	</head>
+
+	<body>
+		<a href="https://www.mcpepc.com/">
+			<main>
+				<div>
+					<img
+						src="https://cdn.jsdelivr.net/gh/hackclub/dinosaurs@main/MCPE_PC_Jaehyeon_Dino.png"
+						alt="MCPE_PC_Jaehyeon_Dino"
+					/>
+				</div>
+
+				<figure class="hidden">
+					<blockquote></blockquote>
+					<figcaption>&mdash; <span></span></figcaption>
+				</figure>
+			</main>
+		</a>
+	</body>
+</html>
